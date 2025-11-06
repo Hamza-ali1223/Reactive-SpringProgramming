@@ -1,0 +1,28 @@
+spring:
+  threads:
+    virtual:
+      enabled: true
+
+  r2dbc:
+    url: r2dbc:pool:mysql://localhost:3306/books
+    username: root
+    password: root
+
+  flyway:
+    enabled: true
+    url: jdbc:mysql://localhost:3306/books
+    user: root
+    password: root
+    locations: classpath:db/migration
+
+  application:
+    name: webflux
+
+
+server:
+  reactive:
+    netty:
+      access-log:
+        enabled: true
+        format: '{remoteAddress} - {method} {uri} -> {status} ({responseTime} ms)'
+  port: 8000
